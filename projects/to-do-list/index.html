@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute To-Do Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.2/main.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.2/main.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌸 Cute To-Do Calendar 🌸</h1>
+        </header>
+        <div id="calendar"></div>
+        <div id="taskModal" class="modal">
+            <div class="modal-content">
+                <h2 id="modalDate"></h2>
+                <ul id="taskList"></ul>
+                <input type="text" id="newTask" placeholder="Enter a new task">
+                <button id="addTask">Add Task</button>
+                <button id="downloadPDF">Download PDF</button>
+                <button id="closeModal">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

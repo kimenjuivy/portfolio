@@ -1,0 +1,184 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #333;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="48" viewport="0 0 100 100" style="fill:black;font-size:24px;"><text y="50%">✏️</text></svg>') 16 0, auto;
+}
+
+#quiz-container {
+    width: 60%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 3px solid #ff8c00;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+   animation: alternate-reverse;
+
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+h1 {
+    color: #ff6347;
+    font-size: 2.5em;
+    text-shadow: 2px 2px #ffa500;
+    animation: rainbow 5s infinite;
+}
+
+@keyframes rainbow {
+    0% { color: #ff6347; }
+    25% { color: #ffa500; }
+    50% { color: #4caf50; }
+    75% { color: #3f51b5; }
+    100% { color: #ff6347; }
+}
+
+.question-group {
+    margin-bottom: 30px;
+    background-color: #f0f8ff;
+    border-radius: 15px;
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.question-group:hover {
+    transform: scale(1.02);
+}
+
+.question-group h2 {
+    color: #4caf50;
+    text-align: left;
+    margin-left: 20px;
+    text-shadow: 1px 1px #8fbc8f;
+}
+
+.question {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    transition: transform 0.2s;
+}
+
+.question-number {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+.answer {
+    width: 30%;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.answer:focus {
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+    border-color: #4caf50;
+    outline: none;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1em;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: whitesmoke;
+    background-color: rgb(27, 148, 213);
+    animation: infinite;
+}
+button:hover {
+background-color: rgb(24, 227, 234);
+transform: scaleY() rotate(6deg);
+box-shadow: #f6d365;
+
+}
+
+#submit {
+    background-color: #4caf50;
+    color: white;
+}
+
+#submit:hover {
+    background-color: #45a049;
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+#report-container {
+    display: none;
+    margin-top: 20px;
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#report-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+#report-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fafafa;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+#report-list li:hover {
+    background-color: #f0f0f0;
+    transform: translateX(5px);
+}
+
+#report-list li:last-child {
+    border-bottom: none;
+}
+
+#download-report {
+    margin-top: 20px;
+    background-color: #f44336;
+    color: white;
+}
+
+#download-report:hover {
+    background-color: #e53935;
+    transform: scale(1.05) rotate(-5deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+#go-back{
+    padding: 12px 25px;
+    font-size: 1em;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: whitesmoke;
+    background-color: rgb(27, 148, 213);
+    animation: infinite;    
+}

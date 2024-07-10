@@ -1,0 +1,116 @@
+
+body{
+    background-image: url("images/body.background.jpg");
+}
+.header {
+    background: #ccc;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+}
+
+.header h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.quiz-links {
+    display: flex;
+    justify-content: center;
+}
+
+.quiz-links a {
+    background-color: #ff69b4;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.quiz-links a:hover {
+    background-color: #e0568e;
+}
+/* Additional styles for the quiz section */
+.quiz-section {
+    margin-top: 20px;
+    border: #ff69b4;
+    border-color: #ff69b4;
+}
+
+.quiz-section h2 {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.quiz-info {
+    font-size: 22px;
+    color: white;
+}
+
+.quiz-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.quiz-links a {
+    background-color: #ff69b4;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px 10px 0;
+    text-decoration: none;
+}
+
+.quiz-links a:hover {
+    background-color: #e0568e;
+}
+
+.subtopic-links a {
+    background-color: #de1a8f;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+        margin: 0 10px 10px 0; 
+        margin-right: 20px; 
+    text-decoration: none;
+   justify-content: left;
+   display:flex;
+   flex-wrap: initial;
+}
+
+.subtopic-links a:hover {
+    background-color: #4169e1;
+}
+.container {
+    display: flex;
+    justify-content: space-between; /* Positions items at the far ends of the container */
+}
+
+.maths1,.maths2 {
+    flex: 1; /* Allows the divisions to grow and fill the space equally */
+    /* Add any other styling you want for the divisions */
+}

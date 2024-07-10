@@ -1,0 +1,135 @@
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #f39c12;
+  --text-color: #333;
+  --bg-color: #f5f7fa;
+  --card-bg: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
+
+body.dark-mode {
+  --text-color: #f5f7fa;
+  --bg-color: #1a1a1a;
+  --card-bg: #2a2a2a;
+  --header-bg: rgba(42, 42, 42, 0.9);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.navbar {
+  background-color: var(--header-bg);
+  color: var(--text-color);
+  padding: 10px 0;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.navbar .desktop-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .desktop-nav li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.navbar .desktop-nav li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.navbar .desktop-nav li a:hover {
+  color: var(--primary-color);
+}
+
+.services-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.services-section h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.service {
+  background-color: var(--card-bg);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.service h2 {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.service h3 {
+  margin-top: 15px;
+  color: var(--secondary-color);
+}
+
+.service ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.contact-info {
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.contact-info a:hover {
+  color: var(--secondary-color);
+}
+
+.details {
+  display: none;
+}
+
+.toggle-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.toggle-btn:hover {
+  background-color: var(--secondary-color);
+}

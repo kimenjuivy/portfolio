@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Weather app</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="enter city name" spellcheck="false">
+             <button><img src="images/search.png" alt=""></button>
+        </div>
+        <div class="weather"></div>
+        <img src="images/sunny.jpeg" class="weather-icon">
+        <h1 class="temp">22°C</h1>
+        <div class="city">nairobi</div>
+        <div class="details">
+            <div class="col">
+                <img src="images/humidity.png">
+                <div>
+                <p class="humidity">50%</p>
+                <p>Humidity</p>
+            </div>
+            </div>
+            <div class="col">
+                <img src="images/wind.png">
+                <div>
+                <p class="wind">50%</p>
+                <p>wind speed 15km/h</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    const apiKey="2211f5e546ff5c3061ced5499e73b3aa";
+    const apiUrl= "https://api.openweathermap.org/data/2.5/weather? units= metric&q=bangalore";
+    async function checkweather(){
+        const response= await fetch (apiUrl + '&appid={apiKey}');
+        var date = await data.json();
+        console.log(data);
+    }
+    checkweather()
+    </script>
+    </body>
+</html>
