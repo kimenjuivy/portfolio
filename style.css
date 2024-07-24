@@ -229,69 +229,85 @@ main {
   border-radius: 5px;
   transition: width 1s ease-in-out;
 }
+.projects {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #333;
+}
 
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .project-card {
-  background-color: var(--card-bg);
+  background: #fff;
+  border: 1px solid #e0e0e0;
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: var(--transition);
+  padding: 20px;
+  width: calc(33.333% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .project-card h3 {
-  padding: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
 }
 
 .project-card p {
-  padding: 0 1rem 1rem;
-  font-size: 0.9rem;
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 15px;
 }
 
 .project-tech {
-  padding: 0 1rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .project-tech span {
-  display: inline-block;
-  background-color: var(--primary-color);
+  background: #007bff;
   color: #fff;
-  padding: 0.2rem 0.5rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
 }
 
 .project-link {
-  display: block;
-  text-align: center;
-  background-color: var(--primary-color);
+  display: inline-block;
+  padding: 10px 20px;
+  background: #007bff;
   color: #fff;
-  padding: 0.5rem;
   text-decoration: none;
-  transition: var(--transition);
+  border-radius: 5px;
+  font-size: 1em;
+  transition: background 0.3s ease;
 }
 
 .project-link:hover {
-  background-color: var(--secondary-color);
+  background: #0056b3;
 }
+
+
 
 .contact-container {
   display: flex;
