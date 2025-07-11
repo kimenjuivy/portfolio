@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Ivy Kimenju | Full Stack Developer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-bg: #0a0a0a;
+      --secondary-bg: #111111;
+      --card-bg: #1a1a1a;
+      --accent: #00d4ff;
+      --accent-hover: #00b8e6;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --text-muted: #808080;
+      --border: #333333;
+      --gradient: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    /* Main Content */
+    main {
+      margin-top: 80px;
+      padding: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services-hero {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .services-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .services-hero .subtitle {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      animation: fadeInUp 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .service-card:nth-child(1) { animation-delay: 0.1s; }
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+    }
+
+    .service-header {
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .service-header::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .service-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .service-description {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .toggle-btn {
+      background: transparent;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-family: inherit;
+    }
+
+    .toggle-btn:hover {
+      background: var(--accent);
+      color: var(--primary-bg);
+      transform: scale(1.05);
+    }
+
+    .service-details {
+      padding: 0 2rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+      opacity: 0;
+    }
+
+    .service-details.active {
+      max-height: 800px;
+      padding: 0 2rem 2rem;
+      opacity: 1;
+    }
+
+    .detail-section {
+      margin-bottom: 2rem;
+    }
+
+    .detail-section h3 {
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .detail-section h3::before {
+      content: '▶';
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .detail-section ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .detail-section li {
+      color: var(--text-secondary);
+      margin-bottom: 0.7rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .detail-section li::before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tech-badge {
+      background: rgba(0, 212, 255, 0.1);
+      color: var(--accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .contact-cta {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 3rem;
+      text-align: center;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .contact-cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .contact-cta p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .cta-btn.primary {
+      background: var(--gradient);
+      color: var(--primary-bg);
+    }
+
+    .cta-btn.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+    }
+
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--border);
+    }
+
+    .cta-btn.secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .services-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      nav {
+        padding: 1rem;
+      }
+      
+      main {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">IK</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Me</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+      </ul>
+      <div class="theme-toggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="services-hero">
+      <h1>Professional Services</h1>
+      <p class="subtitle">Delivering enterprise-grade solutions with cutting-edge technology</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h2 class="service-title">Full Stack Development</h2>
+          <p class="service-description">End-to-end web application development using modern technologies and best practices</p>
+          <button class="toggle-btn">Explore Details</button>
+        </div>
+        <div class="service-details">
+          <div class="detail-section">
+            <h3>Frontend Excellence</h3>
+            <ul>
+              <li>React.js, Vue.js, Angular with TypeScript</li>
+              <li>Responsive UI/UX with Tailwind CSS, Material-UI</li>
+              <li>Progressive Web Apps (PWA) development</li>
+              <li>State management with Redux, Vuex, NgRx</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Vue.js</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">Tailwind</span>
+            </div>
+          </div>
+          <div class="detail-section">
+            <h3>Backend Architecture</h3>
+            <ul>
+              <li>Node.js, Express.js, NestJS development</li>
+              <li>RESTful APIs and GraphQL implementation</li>
+              <li>Microservices architecture design</li>
+              <li>Database optimization (PostgreSQL, MongoDB)</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">Express</span>
+              <span class="tech-badge">GraphQL</span>
+              <span class="tech-badge">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h2 class="service-title">Network Infrastructure</h2>
+          <p class="service-description">Secure, scalable network solutions for enterprise environments</p>
+          <button class="toggle-btn">Explore Details</button>
+        </div>
+        <div class="service-details">
+          <div class="detail-section">
+            <h3>Enterprise Networking</h3>
+            <ul>
+              <li>Network architecture design and implementation</li>
+              <li>Cisco, Juniper, and Ubiquiti equipment configuration</li>
+              <li>VLAN segmentation and traffic optimization</li>
+              <li>SD-WAN and cloud networking solutions</li>
+            </ul>
+          </div>
+          <div class="detail-section">
+            <h3>Security & Monitoring</h3>
+            <ul>
+              <li>Advanced firewall configuration and management</li>
+              <li>Intrusion detection and prevention systems</li>
+              <li>Network monitoring with SNMP and custom dashboards</li>
+              <li>Compliance auditing and security assessments</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-header">
+          <div class="service-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h2 class="service-title">Cloud & DevOps</h2>
+          <p class="service-description">Scalable cloud infrastructure and automated deployment pipelines</p>
+          <button class="toggle-btn">Explore Details</button>
+        </div>
+        <div class="service-details">
+          <div class="detail-section">
+            <h3>Cloud Architecture</h3>
+            <ul>
+              <li>AWS, Azure, Google Cloud Platform deployment</li>
+              <li>Kubernetes orchestration and Docker containerization</li>
+              <li>Serverless architecture with Lambda, Functions</li>
+              <li>Auto-scaling and load balancing strategies</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-badge">AWS</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">Kubernetes</span>
+              <span class="tech-badge">Terraform</span>
+            </div>
+          </div>
+          <div class="detail-section">
+            <h3>DevOps Pipeline</h3>
+            <ul>
+              <li>CI/CD with Jenkins, GitHub Actions, GitLab CI</li>
+              <li>Infrastructure as Code (Terraform, CloudFormation)</li>
+              <li>Monitoring with Prometheus, Grafana, ELK Stack</li>
+              <li>Automated testing and quality assurance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-cta">
+      <h2>Ready to Build Something Amazing?</h2>
+      <p>Let's discuss your project requirements and create a solution that exceeds expectations</p>
+      <div class="cta-buttons">
+        <a href="mailto:kimenjuivy@gmail.com" class="cta-btn primary">
+          <i class="fas fa-envelope"></i>
+          Start a Project
+        </a>
+        <a href="projects.html" class="cta-btn secondary">
+          <i class="fas fa-eye"></i>
+          View Portfolio
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Service details toggle functionality
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const details = this.parentElement.nextElementSibling;
+        const isActive = details.classList.contains('active');
+        
+        // Close all other details
+        document.querySelectorAll('.service-details').forEach(detail => {
+          detail.classList.remove('active');
+        });
+        
+        // Reset all button texts
+        document.querySelectorAll('.toggle-btn').forEach(button => {
+          button.textContent = 'Explore Details';
+        });
+        
+        // Toggle current details
+        if (!isActive) {
+          details.classList.add('active');
+          this.textContent = 'Hide Details';
+        }
+      });
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Add scroll effect to header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(10, 10, 10, 0.98)';
+      } else {
+        header.style.background = 'rgba(10, 10, 10, 0.95)';
+      }
+    });
+  </script>
+</body>
+
+</html>

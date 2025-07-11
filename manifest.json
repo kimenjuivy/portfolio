@@ -1,0 +1,27 @@
+{
+    "name": "Shop App",
+    "short_name": "Shop App",
+    "icons": [
+        {
+        "src": "./assets/icon-1.jpg.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any maskable"
+        },
+        {
+            "src": "./assets/icon-2.png",
+            "sizes": "384x384",
+            "type": "image/png"  
+        },
+        {
+            "src": "./assets/icon-3.png",
+            "sizes": "512x512",
+            "type": "image/png"  
+        }
+    ],
+    "theme_color": "#FFFFFF",
+    "background_color": "#FFFFFF",
+    "start_url": "/shop-app/",
+    "display": "standalone",
+    "orientaton": "potrait"
+}
